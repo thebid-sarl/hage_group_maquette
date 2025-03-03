@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez les produits du Groupe Hage, leader en matériaux de construction en Afrique de l'Ouest">
+  <link rel="shortcut icon" href="assets/images/logohage.jpeg" type="image/x-icon">
+  <title>Produits - Hage Drive</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="fixed-top bg-white shadow-sm">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg py-2">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="assets/images/hagegroup.png" alt="Groupe Hage" height="40">
+          <span class="ms-2 fw-bold text-primary">GROUPE HAGE DRIVE</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-4">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="products.html">Produits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">À propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <a href="cart.html" class="btn btn-outline-primary position-relative me-2">
+              <i class="bi bi-cart"></i> Drive
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                0
+              </span>
+            </a>
+            <a href="login.html" class="btn btn-primary">
+              <i class="bi bi-person"></i> Espace client
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner bg-primary text-white py-5 mt-5">
+    <div class="container py-4">
+      <h1 class="display-5 fw-bold">Nos Produits</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Accueil</a></li>
+          <li class="breadcrumb-item active text-white" aria-current="page">Produits</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Category Navigation -->
+  <section id="category-nav" class="sticky-top bg-white shadow-sm py-3" style="top: 72px; z-index: 999;">
+    <div class="container">
+      <div class="scrolling-wrapper">
+        <button class="btn btn-primary me-2 category-btn active" data-category="all">Tous les produits</button>
+        <button class="btn btn-outline-primary me-2 category-btn" data-category="construction">Matériaux de construction</button>
+        <button class="btn btn-outline-primary me-2 category-btn" data-category="quincaillerie">Quincaillerie</button>
+        <button class="btn btn-outline-primary me-2 category-btn" data-category="meubles">Meubles</button>
+        <button class="btn btn-outline-primary me-2 category-btn" data-category="carrelage">Carrelage</button>
+        <button class="btn btn-outline-primary me-2 category-btn" data-category="sanitaire">Sanitaire</button>
+        <button class="btn btn-outline-primary me-2 category-btn" data-category="electricite">Électricité</button>
+        <button class="btn btn-outline-primary category-btn" data-category="electromenager">Électroménager</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="py-5 bg-light">
+    <div class="container">
+      <!-- Filter Options -->
+      <div class="bg-white p-3 rounded shadow-sm mb-4">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="d-flex align-items-center">
+              <div class="btn-group me-3" role="group" aria-label="View mode">
+                <button type="button" class="btn btn-outline-primary active" id="grid-view">
+                  <i class="bi bi-grid"></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary" id="list-view">
+                  <i class="bi bi-list"></i>
+                </button>
+              </div>
+              <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  Trier par
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                  <li><button class="dropdown-item sort-option" data-sort="default">Par défaut</button></li>
+                  <li><button class="dropdown-item sort-option" data-sort="price-asc">Prix croissant</button></li>
+                  <li><button class="dropdown-item sort-option" data-sort="price-desc">Prix décroissant</button></li>
+                  <li><button class="dropdown-item sort-option" data-sort="name-asc">Nom (A-Z)</button></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent border-end-0">
+                <i class="bi bi-search"></i>
+              </span>
+              <input type="text" class="form-control border-start-0" id="searchProducts" placeholder="Rechercher un produit...">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="row g-4" id="products-container">
+        <!-- Products will be loaded here via JS -->
+      </div>
+      
+      <!-- Pagination -->
+      <nav aria-label="Products pagination" class="mt-5">
+        <ul class="pagination justify-content-center" id="pagination">
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- No Results Message -->
+      <div id="no-results" class="text-center py-5 d-none">
+        <i class="bi bi-search display-1 text-secondary opacity-50"></i>
+        <h3 class="mt-3">Aucun produit trouvé</h3>
+        <p class="text-secondary">Essayez de modifier vos critères de recherche</p>
+        <button class="btn btn-primary mt-3" id="reset-search">Réinitialiser la recherche</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel">Détails du produit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5 mb-4 mb-md-0">
+              <img src="" alt="" class="img-fluid rounded product-modal-image">
+            </div>
+            <div class="col-md-7">
+              <span class="badge bg-primary mb-2 product-modal-category"></span>
+              <h3 class="product-modal-title"></h3>
+              <h4 class="text-primary product-modal-price mb-3"></h4>
+              <p class="product-modal-description"></p>
+              
+              <div class="mb-3">
+                <label class="form-label">Quantité</label>
+                <div class="input-group quantity-control" style="width: 130px;">
+                  <button class="btn btn-outline-secondary quantity-btn" type="button" id="decrease-quantity">-</button>
+                  <input type="number" class="form-control text-center" value="1" min="1" id="product-quantity">
+                  <button class="btn btn-outline-secondary quantity-btn" type="button" id="increase-quantity">+</button>
+                </div>
+              </div>
+              
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary add-to-drive-modal" data-id="">
+                  <i class="bi bi-cart-plus"></i> Ajouter au drive
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5 class="fw-bold mb-4">GROUPE HAGE DRIVE</h5>
+          <p class="text-white-50 mb-4">Leader en commerce et distribution de matériaux de construction en Afrique de l'Ouest depuis 1990.</p>
+          <div class="d-flex gap-3">
+            <a href="#" class="text-white-50 social-icon"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-white-50 social-icon"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-white-50 social-icon"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2">
+          <h5 class="fw-bold mb-4">Liens rapides</h5>
+          <ul class="list-unstyled footer-links">
+            <li class="mb-2"><a href="index.html" class="text-white-50">Accueil</a></li>
+            <li class="mb-2"><a href="products.html" class="text-white-50">Produits</a></li>
+            <li class="mb-2"><a href="services.html" class="text-white-50">Services</a></li>
+            <li class="mb-2"><a href="about.html" class="text-white-50">À propos</a></li>
+            <li class="mb-2"><a href="contact.html" class="text-white-50">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-lg-2">
+          <h5 class="fw-bold mb-4">Produits</h5>
+          <ul class="list-unstyled footer-links">
+            <li class="mb-2"><a href="products.html?category=construction" class="text-white-50">Matériaux de construction</a></li>
+            <li class="mb-2"><a href="products.html?category=quincaillerie" class="text-white-50">Quincaillerie</a></li>
+            <li class="mb-2"><a href="products.html?category=carrelage" class="text-white-50">Carrelage</a></li>
+            <li class="mb-2"><a href="products.html?category=sanitaire" class="text-white-50">Sanitaire</a></li>
+            <li class="mb-2"><a href="products.html?category=electricite" class="text-white-50">Électricité</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-lg-4">
+          <h5 class="fw-bold mb-4">Contact</h5>
+          <ul class="list-unstyled footer-links">
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-geo-alt me-3 text-primary"></i>
+              <span class="text-white-50">Siège social: Ouagadougou, Burkina Faso</span>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-telephone me-3 text-primary"></i>
+              <span class="text-white-50">+226 XX XX XX XX</span>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-envelope me-3 text-primary"></i>
+              <span class="text-white-50">contact@groupehage.bf</span>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-clock me-3 text-primary"></i>
+              <span class="text-white-50">Lun - Sam: 8h00 - 18h00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary opacity-25">
+      <div class="row">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <p class="text-white-50 mb-0">&copy; 2025 Groupe Hage. Tous droits réservés.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white-50 me-3">Politique de confidentialité</a>
+          <a href="#" class="text-white-50">Conditions d'utilisation</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-success text-white">
+        <i class="bi bi-check-circle me-2"></i>
+        <strong class="me-auto">Produit ajouté</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Le produit a été ajouté à votre drive.
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Si products.js ne charge pas, intégrer directement les produits -->
+  <script>
+    // Produits - base de données simplifiée
+    const products = [
+      {
+        id: 1,
+        name: "Fer à béton Ø10 mm",
+        price: 3800,
+        category: "construction",
+        image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&q=80",
+        description: "Barre d'acier haute résistance pour le renforcement du béton. Idéal pour les travaux de construction.",
+        stock: 250,
+        popular: true,
+        badge: "Populaire"
+      },
+      {
+        id: 2,
+        name: "Clé à molette 300 mm",
+        price: 5500,
+        category: "quincaillerie",
+        image: "https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?ixlib=rb-4.0.3&q=80",
+        description: "Clé ajustable robuste pour les travaux de plomberie et mécanique. Poignée ergonomique.",
+        stock: 120,
+        popular: false
+      },
+      {
+        id: 3,
+        name: "Meuble TV en bois",
+        price: 45000,
+        category: "meubles",
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&q=80",
+        description: "Meuble TV élégant en bois massif, parfait pour votre salon. Design contemporain.",
+        stock: 35,
+        popular: true,
+        badge: "Nouveau"
+      },
+      {
+        id: 4,
+        name: "Carrelage grès cérame 60x60",
+        price: 9800,
+        category: "carrelage",
+        image: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-4.0.3&q=80",
+        description: "Carrelage de sol haute qualité, résistant et élégant. Parfait pour intérieur et extérieur. Prix au m².",
+        stock: 500,
+        popular: true,
+        unit: "m²"
+      },
+      {
+        id: 5,
+        name: "Robinet mitigeur chromé",
+        price: 15200,
+        category: "sanitaire",
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&q=80",
+        description: "Robinet moderne pour salle de bain avec finition chromée. Installation facile.",
+        stock: 80,
+        popular: false
+      },
+      {
+        id: 6,
+        name: "Disjoncteur différentiel 40A",
+        price: 8900,
+        category: "electricite",
+        image: "assets/images/disjoncteur.jpg",
+        description: "Protection électrique fiable pour installation domestique. Conforme aux normes.",
+        stock: 150,
+        popular: false
+      }
+    ];
+
+    // Fonction pour formater le prix
+    function formatPrice(price) {
+      return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " FCFA";
+    }
+
+    // Convertir la catégorie en nom complet
+    function getCategoryName(category) {
+      const categories = {
+        construction: "Matériaux de construction",
+        quincaillerie: "Quincaillerie",
+        meubles: "Meubles",
+        carrelage: "Carrelage",
+        sanitaire: "Sanitaire",
+        electricite: "Électricité",
+        electromenager: "Électroménager"
+      };
+      
+      return categories[category] || category;
+    }
+
+    // Fonction pour créer une card de produit
+    function createProductCard(product) {
+      const card = document.createElement('div');
+      card.className = 'col-sm-6 col-md-4 col-lg-3 mb-4';
+      card.setAttribute('data-category', product.category);
+      
+      let badge = '';
+      if (product.badge) {
+        badge = `<span class="position-absolute top-0 end-0 bg-primary text-white py-1 px-2 m-2 rounded-pill">${product.badge}</span>`;
+      }
+      
+      let unit = product.unit ? `/${product.unit}` : '';
+      
+      card.innerHTML = `
+        <div class="card h-100 product-card">
+          <div class="position-relative">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            ${badge}
+          </div>
+          <div class="card-body d-flex flex-column">
+            <span class="badge bg-secondary mb-2">${getCategoryName(product.category)}</span>
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text text-secondary small flex-grow-1">${product.description}</p>
+            <div class="mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-bold text-primary">${formatPrice(product.price)}${unit}</span>
+                <span class="small text-${product.stock > 0 ? 'success' : 'danger'}">
+                  ${product.stock > 0 ? 'En stock' : 'Rupture de stock'}
+                </span>
+              </div>
+              <div class="d-flex gap-2">
+                <button class="btn btn-outline-primary w-100 view-product" data-id="${product.id}">
+                  <i class="bi bi-eye"></i> Détails
+                </button>
+                <button class="btn btn-primary w-100 ${product.stock <= 0 ? 'disabled' : ''} add-to-drive" data-id="${product.id}">
+                  <i class="bi bi-cart-plus"></i> Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      return card;
+    }
+
+    // Fonction pour afficher les produits
+    function displayProducts(productsToDisplay, containerId = 'products-container') {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      
+      container.innerHTML = '';
+      
+      if (productsToDisplay.length === 0) {
+        document.getElementById('no-results')?.classList.remove('d-none');
+        return;
+      }
+      
+      document.getElementById('no-results')?.classList.add('d-none');
+      
+      productsToDisplay.forEach(product => {
+        container.appendChild(createProductCard(product));
+      });
+    }
+
+    // Fonction pour filtrer les produits par catégorie
+    function filterProductsByCategory(category) {
+      if (category === 'all') {
+        return products;
+      }
+      return products.filter(product => product.category === category);
+    }
+
+    // Fonction pour rechercher des produits
+    function searchProducts(query) {
+      return products.filter(product => 
+        product.name.toLowerCase().includes(query.toLowerCase()) || 
+        product.description.toLowerCase().includes(query.toLowerCase()) ||
+        getCategoryName(product.category).toLowerCase().includes(query.toLowerCase())
+      );
+    }
+
+    // Fonction pour obtenir un produit par son ID
+    function getProductById(productId) {
+      return products.find(product => product.id === parseInt(productId));
+    }
+
+    // Fonction pour ajouter au panier
+    function addToCart(productId, quantity = 1) {
+      // Récupérer le panier actuel
+      const cart = localStorage.getItem('hage-drive-cart');
+      let cartItems = cart ? JSON.parse(cart) : [];
+      
+      // Obtenir le produit à ajouter
+      const product = getProductById(parseInt(productId));
+      if (!product) return;
+      
+      // Vérifier si le produit est déjà dans le panier
+      const existingItemIndex = cartItems.findIndex(item => item.id === parseInt(productId));
+      
+      if (existingItemIndex !== -1) {
+        // Mettre à jour la quantité
+        cartItems[existingItemIndex].quantity += parseInt(quantity);
+      } else {
+        // Ajouter un nouveau produit
+        cartItems.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          quantity: parseInt(quantity),
+          unit: product.unit || ''
+        });
+      }
+      
+      // Sauvegarder le panier
+      localStorage.setItem('hage-drive-cart', JSON.stringify(cartItems));
+      
+      // Mettre à jour le compteur
+      updateCartCount();
+    }
+
+    // Mettre à jour le compteur du panier
+    function updateCartCount() {
+      const cart = localStorage.getItem('hage-drive-cart');
+      const cartItems = cart ? JSON.parse(cart) : [];
+      
+      // Calculer le nombre total d'articles
+      const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+      
+      // Mettre à jour tous les compteurs
+      document.querySelectorAll('.cart-count').forEach(el => {
+        el.textContent = itemCount;
+        
+        // Afficher/cacher le badge
+        if (itemCount === 0) {
+          el.classList.add('d-none');
+        } else {
+          el.classList.remove('d-none');
+        }
+      });
+    }
+
+    // Fonction pour ouvrir le modal de produit
+    function openProductModal(productId) {
+      const product = getProductById(productId);
+      if (!product) return;
+      
+      // Mettre à jour le contenu du modal
+      const modal = document.getElementById('productModal');
+      modal.querySelector('.product-modal-image').src = product.image;
+      modal.querySelector('.product-modal-image').alt = product.name;
+      modal.querySelector('.product-modal-category').textContent = getCategoryName(product.category);
+      modal.querySelector('.product-modal-title').textContent = product.name;
+      
+      let unit = product.unit ? `/${product.unit}` : '';
+      modal.querySelector('.product-modal-price').textContent = formatPrice(product.price) + unit;
+      
+      modal.querySelector('.product-modal-description').textContent = product.description;
+      modal.querySelector('.add-to-drive-modal').setAttribute('data-id', product.id);
+      
+      // Réinitialiser la quantité
+      document.getElementById('product-quantity').value = 1;
+      
+      // Ouvrir le modal
+      const modalInstance = new bootstrap.Modal(modal);
+      modalInstance.show();
+    }
+
+    // Fonction pour afficher le toast
+    function showAddToCartToast() {
+      const toastEl = document.getElementById('cartToast');
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
+    }
+
+    // Initialisation au chargement de la page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mettre à jour le compteur du panier
+      updateCartCount();
+      
+      // Vérifier si nous sommes sur la page des produits
+      const productsContainer = document.getElementById('products-container');
+      if (productsContainer) {
+        // Afficher tous les produits
+        displayProducts(products);
+        
+        // Gérer les filtres par catégorie
+        document.querySelectorAll('.category-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            // Mettre à jour les classes des boutons
+            document.querySelectorAll('.category-btn').forEach(b => {
+              b.classList.remove('btn-primary', 'active');
+              b.classList.add('btn-outline-primary');
+            });
+            this.classList.remove('btn-outline-primary');
+            this.classList.add('btn-primary', 'active');
+            
+            // Filtrer les produits
+            const category = this.getAttribute('data-category');
+            const filteredProducts = filterProductsByCategory(category);
+            displayProducts(filteredProducts);
+          });
+        });
+        
+        // Gérer la recherche
+        const searchInput = document.getElementById('searchProducts');
+        if (searchInput) {
+          searchInput.addEventListener('input', function() {
+            const query = this.value.trim();
+            
+            if (query === '') {
+              // Réafficher selon la catégorie active
+              const activeCategory = document.querySelector('.category-btn.active')?.getAttribute('data-category') || 'all';
+              displayProducts(filterProductsByCategory(activeCategory));
+            } else {
+              // Rechercher selon le terme
+              displayProducts(searchProducts(query));
+            }
+          });
+        }
+        
+        // Gérer les boutons de changement de vue
+        const gridViewBtn = document.getElementById('grid-view');
+        const listViewBtn = document.getElementById('list-view');
+        if (gridViewBtn && listViewBtn) {
+          gridViewBtn.addEventListener('click', function() {
+            gridViewBtn.classList.add('active');
+            listViewBtn.classList.remove('active');
+            productsContainer.classList.remove('list-view');
+          });
+          
+          listViewBtn.addEventListener('click', function() {
+            listViewBtn.classList.add('active');
+            gridViewBtn.classList.remove('active');
+            productsContainer.classList.add('list-view');
+          });
+        }
+        
+        // Gérer le bouton de réinitialisation de recherche
+        document.getElementById('reset-search')?.addEventListener('click', function() {
+          document.getElementById('searchProducts').value = '';
+          const activeCategory = document.querySelector('.category-btn.active')?.getAttribute('data-category') || 'all';
+          displayProducts(filterProductsByCategory(activeCategory));
+        });
+      }
+      
+      // Gérer les clics sur les boutons dans la page
+      document.body.addEventListener('click', function(e) {
+        // Bouton "Détails"
+        if (e.target.classList.contains('view-product') || e.target.closest('.view-product')) {
+          const button = e.target.classList.contains('view-product') ? e.target : e.target.closest('.view-product');
+          const productId = button.getAttribute('data-id');
+          openProductModal(productId);
+        }
+        
+        // Bouton "Ajouter au drive" dans la liste
+        if (e.target.classList.contains('add-to-drive') || e.target.closest('.add-to-drive')) {
+          const button = e.target.classList.contains('add-to-drive') ? e.target : e.target.closest('.add-to-drive');
+          if (!button.classList.contains('disabled')) {
+            const productId = button.getAttribute('data-id');
+            addToCart(productId, 1);
+            showAddToCartToast();
+          }
+        }
+        
+        // Bouton "Ajouter au drive" dans le modal
+        if (e.target.classList.contains('add-to-drive-modal') || e.target.closest('.add-to-drive-modal')) {
+          const button = e.target.classList.contains('add-to-drive-modal') ? e.target : e.target.closest('.add-to-drive-modal');
+          const productId = button.getAttribute('data-id');
+          const quantity = parseInt(document.getElementById('product-quantity').value);
+          addToCart(productId, quantity);
+          
+          // Fermer le modal
+          const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+          modal.hide();
+          
+          showAddToCartToast();
+        }
+      });
+      
+      // Gestion de la quantité dans le modal
+      document.getElementById('decrease-quantity')?.addEventListener('click', function() {
+        const quantityInput = document.getElementById('product-quantity');
+        let quantity = parseInt(quantityInput.value);
+        if (quantity > 1) {
+          quantityInput.value = quantity - 1;
+        }
+      });
+      
+      document.getElementById('increase-quantity')?.addEventListener('click', function() {
+        const quantityInput = document.getElementById('product-quantity');
+        let quantity = parseInt(quantityInput.value);
+        quantityInput.value = quantity + 1;
+      });
+    });
+  </script>
+  
+  <!-- Custom JS -->
+  <script src="main.js"></script>
+</body>
+</html>

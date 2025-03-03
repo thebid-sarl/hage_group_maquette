@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="logohage.jpeg" type="image/x-icon">
+  <title>Groupe Hage - Leader en commerce et distribution en Afrique de l'Ouest</title>
+  <style>
+    /* Variables globales */
+    :root {
+      --primary-color: #0055a4;
+      --secondary-color: #667085;
+      --accent-color: #e67e22;
+      --light-gray: #f5f7fa;
+      --white: #ffffff;
+      --black: #101828;
+      --transition: all 0.3s ease;
+    }
+    
+    /* Reset et base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      color: var(--black);
+      line-height: 1.6;
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--accent-color);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: 2px solid var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--primary-color);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--primary-color);
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      color: var(--secondary-color);
+    }
+    
+    /* Header et Navigation */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .logo img {
+      height: 40px;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-item {
+      margin: 0 15px;
+    }
+    
+    .nav-link {
+      color: var(--secondary-color);
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+    }
+    
+    .mobile-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 80vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/800');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      margin-top: 70px;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+    }
+    
+    .hero-title {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    
+    .hero-subtitle {
+      font-size: 20px;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    /* About Section */
+    .about {
+      background-color: var(--white);
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-title {
+      font-size: 36px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    
+    .about-description {
+      margin-bottom: 30px;
+      color: var(--secondary-color);
+    }
+    
+    .about-image {
+      flex: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Services Section */
+    .services {
+      background-color: var(--light-gray);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto 20px;
+      font-size: 30px;
+    }
+    
+    .service-title {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      padding: 0 20px;
+    }
+    
+    .service-description {
+      text-align: center;
+      color: var(--secondary-color);
+      padding: 0 20px 30px;
+    }
+    
+    /* Products Preview */
+    .products-preview {
+      background-color: var(--white);
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .product-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-image {
+      height: 200px;
+      width: 100%;
+      background-color: var(--light-gray);
+      position: relative;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .product-category {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .product-details {
+      padding: 20px;
+    }
+    
+    .product-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .product-description {
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .view-more {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    /* Partners Section */
+    .partners {
+      background-color: var(--light-gray);
+    }
+    
+    .partners-logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .partner-logo {
+      height: 80px;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: var(--transition);
+    }
+    
+    .partner-logo:hover {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background-color: var(--white);
+    }
+    
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .testimonial {
+      padding: 30px;
+    }
+    
+    .testimonial-text {
+      font-size: 18px;
+      font-style: italic;
+      color: var(--secondary-color);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .testimonial-text::before,
+    .testimonial-text::after {
+      content: '"';
+      font-size: 50px;
+      color: var(--primary-color);
+      opacity: 0.3;
+      position: absolute;
+    }
+    
+    .testimonial-text::before {
+      top: -20px;
+      left: -10px;
+    }
+    
+    .testimonial-text::after {
+      bottom: -40px;
+      right: -10px;
+    }
+    
+    .testimonial-author {
+      margin-top: 20px;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+    
+    .author-position {
+      font-size: 14px;
+      color: var(--secondary-color);
+    }
+    
+    /* Contact CTA */
+    .contact-cta {
+      background-color: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 60px 0;
+    }
+    
+    .cta-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .cta-text {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+    
+    .cta-btn {
+      background-color: var(--white);
+      color: var(--primary-color);
+      border: 2px solid var(--white);
+    }
+    
+    .cta-btn:hover {
+      background-color: transparent;
+      color: var(--white);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #101828;
+      color: var(--white);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link {
+      margin-bottom: 10px;
+    }
+    
+    .footer-link a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+    }
+    
+    .footer-link a:hover {
+      color: var(--white);
+    }
+    
+    .footer-contact-info {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 992px) {
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        height: calc(100vh - 70px);
+        transition: var(--transition);
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
+      
+      .nav-item {
+        margin: 15px 0;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        margin-top: 30px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .hero {
+        height: 70vh;
+      }
+      
+      .hero-title {
+        font-size: 32px;
+      }
+      
+      .hero-subtitle {
+        font-size: 18px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="#">
+            
+            <strong><img src="hagegroup.png"> GROUPE HAGE</strong>
+          </a>
+        </div>
+        
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="#" class="nav-link">Accueil</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">À propos</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Nos Activités</a></li>
+          <li class="nav-item"><a href="produitshage.html" class="nav-link">Produits & Services</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Partenaires</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+          <a href="produitshage.html" class="btn btn-primary">Espace client</a>
+          <div class="mobile-toggle">≡</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<!-- Hero Section -->
+<section class="hero" style="position: relative; background-image: url('baner.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  
+  <!-- Overlay semi-transparent -->
+  <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4);"></div>
+  
+  <!-- Contenu du hero -->
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="hero-content">
+      <h1 class="hero-title">Leader en commerce et distribution en Afrique de l'Ouest</h1>
+      <p class="hero-subtitle">Depuis plus de 30 ans, le Groupe Hage assure la distribution de matériaux de construction et produits divers avec excellence.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Découvrir nos produits</a>
+        <a href="#" class="btn btn-secondary">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <h2 class="section-title">À propos du Groupe Hage</h2>
+      <p class="section-subtitle">Une histoire d'excellence et d'innovation depuis 1990</p>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <h3 class="about-title">Notre mission</h3>
+          <p class="about-description">
+            Fondé en 1990, le Groupe Hage s'est imposé comme un acteur incontournable du commerce en Afrique de l'Ouest. Notre mission est de proposer des produits et services de qualité supérieure qui répondent aux besoins de nos clients, tout en contribuant au développement économique de la région.
+          </p>
+          <p class="about-description">
+            Avec une présence dans plusieurs pays d'Afrique de l'Ouest et des partenariats stratégiques avec les plus grandes marques internationales, nous garantissons fiabilité, qualité et innovation dans tous nos secteurs d'activité.
+          </p>
+          <a href="#" class="btn btn-primary">En savoir plus</a>
+        </div>
+        <div class="about-image">
+          <img src="story.jpeg" alt="Siège du Groupe Hage">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section services" id="services">
+    <div class="container">
+      <h2 class="section-title">Nos activités</h2>
+      <p class="section-subtitle">Découvrez nos différents secteurs d'expertise</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <span>🏭</span>
+          </div>
+          <h3 class="service-title">Import-Export</h3>
+          <p class="service-description">
+            Nous importons et exportons des produits de qualité à travers toute l'Afrique de l'Ouest, en respectant les normes internationales.
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <span>🏗️</span>
+          </div>
+          <h3 class="service-title">Matériaux de construction</h3>
+          <p class="service-description">
+            Distribution de matériaux de construction haut de gamme pour les projets résidentiels et industriels.
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <span>🚚</span>
+          </div>
+          <h3 class="service-title">Distribution</h3>
+          <p class="service-description">
+            Un réseau de distribution efficace couvrant plusieurs pays d'Afrique de l'Ouest avec une logistique optimisée.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Preview -->
+  <section class="section products-preview" id="products">
+    <div class="container">
+      <h2 class="section-title">Nos produits phares</h2>
+      <p class="section-subtitle">Une sélection de nos produits les plus populaires</p>
+      
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="peinture.jpg" alt="Peinture">
+            <span class="product-category">Construction</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Peinture premium</h3>
+            <p class="product-description">
+              Gamme complète de peintures adaptés à tous types de construction et travaux.
+            </p>
+            <a href="#" class="btn btn-secondary">Voir détails</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-image">
+            <img src="fer.jpg" alt="Matériaux de construction">
+            <span class="product-category">Matériaux</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Fer à béton</h3>
+            <p class="product-description">
+              Acier de construction de haute qualité disponible en différentes dimensions.
+            </p>
+            <a href="#" class="btn btn-secondary">Voir détails</a>
+          </div>
+        </div>
+        
+        <div class="product-card">
+          <div class="product-image">
+            <img src="carre.jpg" alt="Carrelage">
+            <span class="product-category">Finition</span>
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Carrelages importés</h3>
+            <p class="product-description">
+              Collection de carrelages de qualité supérieure pour sol et mur.
+            </p>
+            <a href="#" class="btn btn-secondary">Voir détails</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="view-more">
+        <a href="#" class="btn btn-primary">Voir tous nos produits</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="section partners" id="partners">
+    <div class="container">
+      <h2 class="section-title">Nos partenaires</h2>
+      <p class="section-subtitle">Nous collaborons avec les meilleures marques mondiales</p>
+      
+      <div class="partners-logos">
+        <img src="/api/placeholder/150/80" alt="Partenaire 1" class="partner-logo">
+        <img src="/api/placeholder/150/80" alt="Partenaire 2" class="partner-logo">
+        <img src="/api/placeholder/150/80" alt="Partenaire 3" class="partner-logo">
+        <img src="/api/placeholder/150/80" alt="Partenaire 4" class="partner-logo">
+        <img src="/api/placeholder/150/80" alt="Partenaire 5" class="partner-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="container">
+      <h2 class="section-title">Ce que disent nos clients</h2>
+      
+      <div class="testimonial-slider">
+        <div class="testimonial">
+          <div class="testimonial-text">
+            Le Groupe Hage nous a accompagnés sur plusieurs projets d'envergure. La qualité des matériaux et le professionnalisme de leurs équipes nous ont permis de livrer nos chantiers dans les délais impartis avec une qualité irréprochable.
+          </div>
+          <div class="testimonial-author">
+            <div class="author-name">Thomas Ouédraogo</div>
+            <div class="author-position">Directeur, Constructa BTP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="contact-cta">
+    <div class="container">
+      <h2 class="cta-title">Prêt à démarrer votre projet ?</h2>
+      <p class="cta-text">
+        Contactez-nous dès aujourd'hui pour bénéficier de notre expertise et de nos produits de qualité pour votre prochain projet.
+      </p>
+      <a href="#" class="btn cta-btn">Demander un devis</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Groupe Hage</h3>
+          <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
+            Leader en commerce et distribution de matériaux de construction en Afrique de l'Ouest depuis 1990.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link">f</a>
+            <a href="#" class="social-link">in</a>
+            <a href="#" class="social-link">📷</a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liens rapides</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Accueil</a></li>
+            <li class="footer-link"><a href="#">À propos</a></li>
+            <li class="footer-link"><a href="#">Nos Activités</a></li>
+            <li class="footer-link"><a href="#">Produits & Services</a></li>
+            <li class="footer-link"><a href="#">Nous contacter</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Nos activités</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Import-Export</a></li>
+            <li class="footer-link"><a href="#">Matériaux de construction</a></li>
+            <li class="footer-link"><a href="#">Distribution</a></li>
+            <li class="footer-link"><a href="#">Vente en gros</a></li>
+            <li class="footer-link"><a href="#">Services professionnels</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="footer-contact-info">
+            <span>📍</span>
+            <span>Siège social : Ouagadougou, Burkina Faso</span>
+          </div>
+          <div class="footer-contact-info">
+            <span>📱</span>
+            <span>+226 XX XX XX XX</span>
+          </div>
+          <div class="footer-contact-info">
+            <span>✉️</span>
+            <span>contact@groupehage.bf</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Groupe Hage. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

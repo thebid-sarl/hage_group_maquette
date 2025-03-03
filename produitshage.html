@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez les produits et services du Groupe Hage, leader en matériaux de construction en Afrique de l'Ouest">
+  <link rel="shortcut icon" href="logohage.jpeg" type="image/x-icon">
+  <title>Produits & Services - Groupe Hage</title>
+  <style>
+    /* Variables globales */
+    :root {
+      --primary-color: #0055a4;
+      --secondary-color: #667085;
+      --accent-color: #e67e22;
+      --light-gray: #f5f7fa;
+      --white: #ffffff;
+      --black: #101828;
+      --transition: all 0.3s ease;
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+    }
+    
+    /* Reset et base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      color: var(--black);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: var(--accent-color);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: 2px solid var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: transparent;
+      color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent-color);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      font-size: 18px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      color: var(--secondary-color);
+    }
+    
+    /* Header et Navigation */
+    header {
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-item {
+      margin: 0 15px;
+    }
+    
+    .nav-link {
+      color: var(--secondary-color);
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-color);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .mobile-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--primary-color);
+    }
+    
+    /* Page Banner */
+    .page-banner {
+      background-size: cover;
+      background-position: center;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-align: center;
+      margin-top: 70px;
+      position: relative;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .page-title {
+      font-size: 48px;
+      margin-bottom: 15px;
+      font-weight: 800;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .breadcrumb-item {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .breadcrumb-item a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .breadcrumb-item a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+    
+    .breadcrumb-divider {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Category Nav */
+    .category-nav {
+      background-color: var(--white);
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 70px;
+      z-index: 900;
+    }
+    
+    .category-list {
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .category-item a {
+      display: block;
+      padding: 10px 20px;
+      background-color: var(--light-gray);
+      border-radius: var(--border-radius);
+      color: var(--secondary-color);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .category-item.active a,
+    .category-item a:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    /* Products Grid */
+    .products-section {
+      background-color: var(--light-gray);
+    }
+    
+    .filter-container {
+      margin-bottom: 40px;
+    }
+    
+    .filter-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      background-color: var(--white);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .filter-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .filter-view {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .view-button {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--border-radius);
+      background-color: var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    
+    .view-button.active,
+    .view-button:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    
+    .filter-select select {
+      padding: 10px 15px;
+      border-radius: var(--border-radius);
+      border: 1px solid #ddd;
+      background-color: var(--white);
+      color: var(--secondary-color);
+      font-size: 16px;
+      cursor: pointer;
+      min-width: 200px;
+    }
+    
+    .search-products {
+      position: relative;
+    }
+    
+    .search-products input {
+      padding: 10px 15px 10px 40px;
+      border-radius: var(--border-radius);
+      border: 1px solid #ddd;
+      width: 280px;
+      font-size: 16px;
+    }
+    
+    .search-products input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(0, 85, 164, 0.2);
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--secondary-color);
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .product-card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .product-image {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+    }
+    
+    .product-details {
+      padding: 25px;
+    }
+    
+    .product-category {
+      color: var(--secondary-color);
+      font-size: 14px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .product-title {
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: var(--black);
+    }
+    
+    .product-description {
+      color: var(--secondary-color);
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .product-price {
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 18px;
+    }
+    
+    .product-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .product-actions .btn {
+      flex: 1;
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 8px;
+    }
+    
+    .page-item {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius);
+      background-color: var(--white);
+      color: var(--secondary-color);
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .page-item.active,
+    .page-item:hover {
+      background-color: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Services Section */
+    .services-section {
+      background-color: var(--white);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      display: flex;
+      background-color: var(--light-gray);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .service-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+    }
+    
+    .service-icon {
+      width: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-size: 32px;
+    }
+    
+    .service-content {
+      padding: 25px;
+      flex: 1;
+    }
+    
+    .service-title {
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: var(--black);
+    }
+    
+    .service-description {
+      color: var(--secondary-color);
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    
+    /* Call to Action */
+    .cta-section {
+      padding: 40px 0 80px;
+    }
+    
+    .cta-box {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: center;
+      padding: 80px 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .cta-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .cta-text {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #101828;
+      color: var(--white);
+      padding: 80px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-column h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: var(--white);
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link {
+      margin-bottom: 15px;
+    }
+    
+    .footer-link a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: var(--transition);
+      display: inline-block;
+    }
+    
+    .footer-link a:hover {
+      color: var(--white);
+      transform: translateX(5px);
+    }
+    
+    .footer-contact-info {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .footer-contact-info span:first-child {
+      font-size: 20px;
+      color: var(--accent-color);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: var(--transition);
+      font-size: 18px;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 992px) {
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        height: calc(100vh - 70px);
+        transition: var(--transition);
+        padding: 30px;
+        box-shadow: var(--shadow-md);
+        z-index: 999;
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
+      
+      .nav-item {
+        margin: 15px 0;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      .filter-options {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      
+      .filter-left {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .search-products {
+        width: 100%;
+      }
+      
+      .search-products input {
+        width: 100%;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .category-nav {
+        top: 70px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+      
+      .section-title {
+        font-size: 30px;
+      }
+      
+      .page-title {
+        font-size: 36px;
+      }
+      
+      .breadcrumbs {
+        flex-wrap: wrap;
+      }
+      
+      .category-list {
+        overflow-x: auto;
+        padding-bottom: 15px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .filter-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="hage.html">
+            <strong><img src="hagegroup.png"> GROUPE HAGE</strong>
+          </a>
+        </div>
+        
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">À propos</a></li>
+          <li class="nav-item"><a href="activities.html" class="nav-link">Nos Activités</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link active">Produits & Services</a></li>
+          <li class="nav-item"><a href="partners.html" class="nav-link">Partenaires</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+          <a href="client-area.html" class="btn btn-primary">Espace client</a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">≡</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background-image: url('outil.jpg');">
+    <div class="hero-overlay"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h1 class="page-title">Produits & Services</h1>
+      <div class="breadcrumbs">
+        <span class="breadcrumb-item"><a href="index.html">Accueil</a></span>
+        <span class="breadcrumb-divider">/</span>
+        <span class="breadcrumb-item">Produits & Services</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Navigation -->
+  <section class="category-nav">
+    <div class="container">
+      <ul class="category-list">
+        <li class="category-item active"><a href="#" data-category="all">Tous les produits</a></li>
+        <li class="category-item"><a href="#" data-category="construction">Matériaux de construction</a></li>
+        <li class="category-item"><a href="#" data-category="quincaillerie">Quincaillerie</a></li>
+        <li class="category-item"><a href="#" data-category="meubles">Meubles</a></li>
+        <li class="category-item"><a href="#" data-category="carrelage">Carrelage</a></li>
+        <li class="category-item"><a href="#" data-category="sanitaire">Sanitaire</a></li>
+        <li class="category-item"><a href="#" data-category="electricite">Électricité</a></li>
+        <li class="category-item"><a href="#" data-category="electromenager">Électroménager</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section products-section">
+    <div class="container">
+      <!-- Filter Options -->
+      <div class="filter-container">
+        <div class="filter-options">
+          <div class="filter-left">
+            <div class="filter-view">
+              <button class="view-button active" aria-label="Vue grille">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+              <button class="view-button" aria-label="Vue liste">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              </button>
+            </div>
+            <div class="filter-select">
+              <select id="sortProducts" aria-label="Trier les produits">
+                <option value="default">Trier par défaut</option>
+                <option value="price-low">Prix: croissant</option>
+                <option value="price-high">Prix: décroissant</option>
+                <option value="name">Nom</option>
+              </select>
+            </div>
+          </div>
+          <div class="search-products">
+            <span class="search-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="text" placeholder="Rechercher un produit..." aria-label="Rechercher un produit">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="products-grid" id="productGrid">
+        <!-- Product 1 -->
+        <div class="product-card" data-category="construction">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29uc3RydWN0aW9uJTIwbWF0ZXJpYWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60" alt="Fer à béton">
+            <span class="product-badge">Populaire</span>
+          </div>
+          <div class="product-details">
+            <div class="product-category">Matériaux de construction</div>
+            <h3 class="product-title">Fer à béton Ø10 mm</h3>
+            <p class="product-description">Barre d'acier haute résistance pour le renforcement du béton. Idéal pour les travaux de construction.</p>
+            <div class="product-meta">
+              <span class="product-price">3 800 FCFA</span>
+            </div>
+            <div class="product-actions">
+              <a href="product-details.html" class="btn btn-secondary">Détails</a>
+              <a href="order.html" class="btn btn-primary">Commander</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card" data-category="quincaillerie">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d3JlbmNofGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="Clé à molette">
+          </div>
+          <div class="product-details">
+            <div class="product-category">Quincaillerie</div>
+            <h3 class="product-title">Clé à molette 300 mm</h3>
+            <p class="product-description">Clé ajustable robuste pour les travaux de plomberie et mécanique. Poignée ergonomique.</p>
+            <div class="product-meta">
+              <span class="product-price">5 500 FCFA</span>
+            </div>
+            <div class="product-actions">
+              <a href="product-details.html" class="btn btn-secondary">Détails</a>
+              <a href="order.html" class="btn btn-primary">Commander</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card" data-category="meubles">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZnVybml0dXJlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="Meuble TV">
+            <span class="product-badge">Nouveau</span>
+          </div>
+          <div class="product-details">
+            <div class="product-category">Meubles</div>
+            <h3 class="product-title">Meuble TV en bois</h3>
+            <p class="product-description">Meuble TV élégant en bois massif, parfait pour votre salon. Design contemporain.</p>
+            <div class="product-meta">
+              <span class="product-price">45 000 FCFA</span>
+            </div>
+            <div class="product-actions">
+              <a href="product-details.html" class="btn btn-secondary">Détails</a>
+              <a href="order.html" class="btn btn-primary">Commander</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card" data-category="carrelage">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGlsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="Carrelage">
+          </div>
+          <div class="product-details">
+            <div class="product-category">Carrelage</div>
+            <h3 class="product-title">Carrelage grès cérame 60x60</h3>
+            <p class="product-description">Carrelage de sol haute qualité, résistant et élégant. Parfait pour intérieur et extérieur.</p>
+            <div class="product-meta">
+              <span class="product-price">9 800 FCFA/m²</span>
+            </div>
+            <div class="product-actions">
+              <a href="product-details.html" class="btn btn-secondary">Détails</a>
+              <a href="order.html" class="btn btn-primary">Commander</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card" data-category="sanitaire">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmF1Y2V0fGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="Robinet">
+          </div>
+          <div class="product-details">
+            <div class="product-category">Sanitaire</div>
+            <h3 class="product-title">Robinet mitigeur chromé</h3>
+            <p class="product-description">Robinet moderne pour salle de bain avec finition chromée. Installation facile.</p>
+            <div class="product-meta">
+              <span class="product-price">15 200 FCFA</span>
+            </div>
+            <div class="product-actions">
+              <a href="product-details.html" class="btn btn-secondary">Détails</a>
+              <a href="order.html" class="btn btn-primary">Commander</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card" data-category="electricite">
+          <div class="product-image">
+            <img src="https://www.maison-energy.com/709393-large_default/lot-de-3-disjoncteurs-tetrapolaire-4-modules-40a.jpg" alt="Disjoncteur">
+          </div>
+          <div class="product-details">
+            <div class="product-category">Électricité</div>
+            <h3 class="product-title">Disjoncteur différentiel 40A</h3>
+            <p class="product-description">Protection électrique fiable pour installation domestique. Conforme aux normes.</p>
+            <div class="product-meta">
+              <span class="product-price">8 900 FCFA</span>
+            </div>
+            <div class="product-actions">
+              <a href="product-details.html" class="btn btn-secondary">Détails</a>
+              <a href="order.html" class="btn btn-primary">Commander</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <span class="page-item active">1</span>
+        <span class="page-item">2</span>
+        <span class="page-item">3</span>
+        <span class="page-item">4</span>
+        <span class="page-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="section services-section">
+    <div class="container">
+      <h2 class="section-title">Nos Services</h2>
+      <p class="section-subtitle">Découvrez les services professionnels proposés par le Groupe Hage pour vous accompagner dans tous vos projets</p>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <div class="service-content">
+            <h3 class="service-title">Livraison</h3>
+            <p class="service-description">Livraison rapide et sécurisée de vos achats sur tous les chantiers de la région. Service disponible 7j/7.</p>
+            <a href="services.html" class="btn btn-secondary">En savoir plus</a>
+          </div>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon">⚙️</div>
+          <div class="service-content">
+            <h3 class="service-title">Installation</h3>
+            <p class="service-description">Service d'installation professionnel pour vos équipements et matériaux par des techniciens qualifiés.</p>
+            <a href="services.html" class="btn btn-secondary">En savoir plus</a>
+          </div>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <div class="service-content">
+            <h3 class="service-title">Conseil technique</h3>
+            <p class="service-description">Bénéficiez de l'expertise de nos conseillers pour vous guider dans vos projets de construction.</p>
+            <a href="services.html" class="btn btn-secondary">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">Besoin d'un devis personnalisé ?</h2>
+        <p class="cta-text">Contactez notre équipe commerciale pour obtenir un devis adapté à votre projet. Nous vous répondrons dans les meilleurs délais.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn-primary">Demander un devis</a>
+          <a href="tel:+22620000000" class="btn btn-secondary">Nous appeler</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Groupe Hage</h3>
+          <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
+            Leader en commerce et distribution de matériaux de construction en Afrique de l'Ouest depuis 1990.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Liens rapides</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="index.html">Accueil</a></li>
+            <li class="footer-link"><a href="about.html">À propos</a></li>
+            <li class="footer-link"><a href="activities.html">Nos Activités</a></li>
+            <li class="footer-link"><a href="products.html">Produits & Services</a></li>
+            <li class="footer-link"><a href="contact.html">Nous contacter</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Nos activités</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="activities.html#import">Import-Export</a></li>
+            <li class="footer-link"><a href="activities.html#materials">Matériaux de construction</a></li>
+            <li class="footer-link"><a href="activities.html#distribution">Distribution</a></li>
+            <li class="footer-link"><a href="activities.html#wholesale">Vente en gros</a></li>
+            <li class="footer-link"><a href="activities <div class="footer-link"><a href="activities.html#wholesale">Vente en gros</a></li>
+            <li class="footer-link"><a href="activities.html#services">Services professionnels</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="footer-contact-info">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </span>
+            <span>Siège social : Ouagadougou, Burkina Faso</span>
+          </div>
+          <div class="footer-contact-info">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
+            <span>+226 XX XX XX XX</span>
+          </div>
+          <div class="footer-contact-info">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </span>
+            <span>contact@groupehage.bf</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Groupe Hage. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+    }
+    
+    // Product Filtering
+    const categoryLinks = document.querySelectorAll('.category-list a');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    categoryLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        categoryLinks.forEach(item => {
+          item.parentElement.classList.remove('active');
+        });
+        
+        // Add active class to clicked link
+        link.parentElement.classList.add('active');
+        
+        const category = link.getAttribute('data-category');
+        
+        // Filter products
+        productCards.forEach(card => {
+          if (category === 'all') {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.classList.add('animate-fade-in');
+            }, 10);
+          } else if (card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.classList.add('animate-fade-in');
+            }, 10);
+          } else {
+            card.style.display = 'none';
+            card.classList.remove('animate-fade-in');
+          }
+        });
+      });
+    });
+    
+    // View Toggle (Grid/List)
+    const viewButtons = document.querySelectorAll('.view-button');
+    const productGrid = document.getElementById('productGrid');
+    
+    viewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        viewButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        if (button.getAttribute('aria-label') === 'Vue liste') {
+          productGrid.classList.add('list-view');
+        } else {
+          productGrid.classList.remove('list-view');
+        }
+      });
+    });
+    
+    // Product Search
+    const searchInput = document.querySelector('.search-products input');
+    
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        productCards.forEach(card => {
+          const title = card.querySelector('.product-title').textContent.toLowerCase();
+          const description = card.querySelector('.product-description').textContent.toLowerCase();
+          
+          if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    }
+    
+    // Product Sorting
+    const sortSelect = document.getElementById('sortProducts');
+    
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        const sortValue = sortSelect.value;
+        const productsArray = Array.from(productCards);
+        
+        productsArray.sort((a, b) => {
+          if (sortValue === 'price-low') {
+            const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+            const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+            return priceA - priceB;
+          } else if (sortValue === 'price-high') {
+            const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+            const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(/[^0-9]/g, ''));
+            return priceB - priceA;
+          } else if (sortValue === 'name') {
+            const nameA = a.querySelector('.product-title').textContent;
+            const nameB = b.querySelector('.product-title').textContent;
+            return nameA.localeCompare(nameB);
+          }
+          return 0;
+        });
+        
+        // Re-append sorted products
+        productsArray.forEach(product => {
+          productGrid.appendChild(product);
+        });
+      });
+    }
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href !== '#') {
+          e.preventDefault();
+          
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+    
+    // Add animation class to elements when they come into view
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.product-card, .service-card');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate-fade-in');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+</body>
+</html>
